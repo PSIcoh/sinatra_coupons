@@ -1,4 +1,4 @@
-class ApplicationController < Sinatra::Base
 
-  require 
+class ApplicationController < Sinatra::base
+
 end
