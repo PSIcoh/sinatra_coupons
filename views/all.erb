@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <a class="btn btn-success" href="/form"><h6>Add Coupon</h6></a>
+    <div class="col-xs-6">
+      <% @coupons.each do |item| %>
+      <h3> <%= item.title %> </h3>
+      <p> <%= item.description %></p>
+      <p> <%= item.product %></p>
+      <p> <%= item.discount_price %></p>
+      <p> <%= item.expiration_date %></p>
+      <form class="" action="/" method="post">
+        <input type="hidden" name="coupon_id" value="<%= item.id %>">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+      <form class="" action="/update" method="post">
+        <input type="hidden" name="coupon_id" value="<%= item.id %>">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+      <% end %>
+    </div>
+  </div>
+</div>

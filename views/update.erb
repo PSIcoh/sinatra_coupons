@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <% @coupons.each do |item| %>
+        <% if item.id == @id.to_i %>
+        <form class="" action="/update/coupon" method="post">
+          <div class="form-group">
+            <label class="form-control" for="title">Title: </label>
+            <input type="text" class="form-control" name="title" value="" placeholder=" <%= item.title %>">
+          </div>
+          <div class="form-group">
+            <label class="form-control" for="description">Description: </label>
+            <input type="text" class="form-control" name="description" value="" placeholder="<%= item.description %>">
+          </div>
+          <div class="form-group">
+            <label class="form-control" for="product">Product: </label>
+            <input type="text" class="form-control" name="product" value="" placeholder="<%= item.product %>">
+          </div>
+          <div class="form-group">
+            <label class="form-control" for="discount_price">Discount Price: </label>
+            <input type="number" step="any" class="form-control" name="discount_price" value="" placeholder="<%= item.discount_price %>">
+          </div>
+          <div class="form-group">
+            <label class="form-control" for="expiration_date">Expiration Date: </label>
+            <input type="date" class="form-control" name="expiration_date" value="" placeholder="<%= item.expiration_date %>">
+          </div>
+          <input type="hidden" name="coupon_id" value="<%= item.id %>">
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <h6><a class="btn btn-danger" href="/">Cancel</a></h6>
+          <% else %>
+      <h3> <%= item.title %> </h3>
+      <p> <%= item.description %></p>
+      <p> <%= item.product %></p>
+      <p> <%= item.discount_price %></p>
+      <p> <%= item.expiration_date %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
